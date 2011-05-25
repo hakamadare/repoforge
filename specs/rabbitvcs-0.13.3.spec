@@ -1,9 +1,8 @@
 # $Id$
 # Authority: shuff
 # Upstream: Bruce van der Kooij <brucevdkooij$gmail,com>
-# Rationale: current versions of RabbitVCS require newer GNOME components
-## ExcludeDist: el3 el4 el5
 
+## ExcludeDist: el3 el4
 
 %define python_sitearch %(%{__python} -c 'from distutils import sysconfig; print sysconfig.get_python_lib(1)')
 %define python_sitelib %(%{__python} -c 'from distutils import sysconfig; print sysconfig.get_python_lib(0)')
@@ -12,7 +11,7 @@
 
 Summary: Nautilus integration for Subversion
 Name: rabbitvcs
-Version: 0.14.2.1
+Version: 0.13.3
 Release: 1%{?dist}
 License: GPL
 Group: Development/Libraries
@@ -24,25 +23,21 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
-BuildRequires: python-nautilus-devel >= 0.5.0
+BuildRequires: python-nautilus-devel = 0.5.0
 BuildRequires: neon-devel
-BuildRequires: dbus-python >= 0.80
-BuildRequires: pygobject2-devel >= 2.14.1
-BuildRequires: pygtk2-devel >= 2.12.1
+BuildRequires: dbus-python
+BuildRequires: pygobject2-devel
+BuildRequires: pygtk2-devel
 BuildRequires: python-devel
-BuildRequires: python-dulwich
-BuildRequires: python-simplejson
 BuildRequires: python-svn
 BuildRequires: subversion-devel >= 1.6.5
 Requires: meld
 Requires: neon 
-Requires: dbus-python >= 0.80
-Requires: pygobject2 >= 2.14.1
-Requires: pygtk2 >= 2.12.1
+Requires: dbus-python
+Requires: pygobject2
+Requires: pygtk2 
 Requires: python 
 Requires: python-configobj >= 4.6.0
-Requires: python-dulwich 
-Requires: python-simplejson
 Requires: python-svn 
 Requires: subversion >= 1.6.5
 Requires: %{_iconsbasedir}
@@ -58,7 +53,7 @@ Summary: Nautilus integration for RabbitVCS
 Group: Development/Tools
 
 Requires: %{name} = %{version}-%{release}
-Requires: python-nautilus >= 0.5.0
+Requires: python-nautilus = 0.5.0
 
 %description nautilus
 Install this package to use RabbitVCS with the Nautilus file manager.
@@ -92,7 +87,7 @@ CFLAGS="%{optflags}" %{__python} setup.py install --root="%{buildroot}" --prefix
 
 # install nautilus extension
 %{__install} -m0755 -d %{buildroot}%{nautilus_extensiondir}/python
-%{__install} -m0755 clients/nautilus/RabbitVCS.py %{buildroot}%{nautilus_extensiondir}/python
+%{__install} -m0755 clients/nautilusold/RabbitVCS.py %{buildroot}%{nautilus_extensiondir}/python
 
 # install Gedit extension
 %{__install} -m0755 -d %{buildroot}%{gedit_extensiondir}
@@ -130,7 +125,7 @@ CFLAGS="%{optflags}" %{__python} setup.py install --root="%{buildroot}" --prefix
 %{_datadir}/rabbitvcs
 
 %files nautilus
-%doc clients/nautilus/README
+%doc clients/nautilusold/README
 %dir %{nautilus_extensiondir}
 %{nautilus_extensiondir}/*
 
@@ -140,9 +135,6 @@ CFLAGS="%{optflags}" %{__python} setup.py install --root="%{buildroot}" --prefix
 %{gedit_extensiondir}/*
 
 %changelog
-* Wed May 25 2011 Steve Huff <shuff@vecna.org> - 0.14.2.1-1
-- Updated to version 0.14.2.1 (el6 only).
-
 * Wed Jun 16 2010 Steve Huff <shuff@vecna.org> - 0.13.3-1
 - Updated to version 0.13.3.
 

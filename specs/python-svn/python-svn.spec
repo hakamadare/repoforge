@@ -10,7 +10,7 @@
 
 Summary: Alternative Python interface to Subversion
 Name: python-svn
-Version: 1.7.1
+Version: 1.7.5
 Release: 1%{?dist}
 License: GPL
 Group: Development/Libraries
@@ -67,6 +67,9 @@ CFLAGS="%{optflags}" %{__python} setup.py configure
 %{python_sitearch}/*
 
 %changelog
+* Wed May 25 2011 Steve Huff <shuff@vecna.org> - 1.7.5-1
+- Updated to release 1.7.5.
+
 * Tue Nov 03 2009 Steve Huff <shuff@vecna.org> - 1.7.1-1
 - Renamed per RPMforge naming convention.
 
