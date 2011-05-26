@@ -12,7 +12,7 @@
 
 Summary: System for building perl modules
 Name: perl-Module-Build
-Version: 0.3607
+Version: 0.3800
 Release: 1%{?dist}
 Epoch: 1
 License: Artistic or GPL
@@ -36,21 +36,23 @@ BuildRequires: perl(File::Copy)
 BuildRequires: perl(File::Find)
 BuildRequires: perl(File::Path)
 BuildRequires: perl(File::Spec) >= 0.82
-#BuildRequires: perl(File::Temp) >= 0.15
-BuildRequires: perl(File::Temp)
+BuildRequires: perl(File::Temp) >= 0.15
 BuildRequires: perl(Getopt::Long)
 BuildRequires: perl(IO::File)
-BuildRequires: perl(Test::Harness)
-#BuildRequires: perl(Test::More) >= 0.49
-BuildRequires: perl(Test::More)
+BuildRequires: perl(Module::Metadata) >= 1.000002
+BuildRequires: perl(Parse::CPAN::Meta) >= 1.4401
+BuildRequires: perl(Software::License)
+BuildRequires: perl(Test::Harness) >= 3.16
+BuildRequires: perl(Test::More) >= 0.49
 BuildRequires: perl(Text::Abbrev)
 BuildRequires: perl(Text::ParseWords)
 BuildRequires: perl >= 5.6.1
+Requires: perl(CPAN::Meta) >= 2.110420
 Requires: perl(Cwd)
 Requires: perl(Data::Dumper)
 Requires: perl(ExtUtils::CBuilder) >= 0.27
-Requires: perl(ExtUtils::Install)
-Requires: perl(ExtUtils::Manifest)
+Requires: perl(ExtUtils::Install) >= 0.3
+Requires: perl(ExtUtils::Manifest) >= 1.54
 Requires: perl(ExtUtils::Mkbootstrap)
 Requires: perl(ExtUtils::ParseXS) >= 2.21
 Requires: perl(File::Basename)
@@ -61,9 +63,12 @@ Requires: perl(File::Path)
 Requires: perl(File::Spec) >= 0.82
 Requires: perl(Getopt::Long)
 Requires: perl(IO::File)
+Requires: perl(Module::Metadata) >= 1.000002
+Requires: perl(Software::License)
 Requires: perl(Test::Harness)
 Requires: perl(Text::Abbrev)
 Requires: perl(Text::ParseWords)
+Requires: perl(version) >= 0.87
 Requires: perl >= 5.6.1
 
 %filter_from_requires /^perl*/d
@@ -98,7 +103,7 @@ find %{buildroot} -name .packlist -exec %{__rm} {} \;
 
 %files
 %defattr(-, root, root, 0755)
-%doc Changes README
+%doc Changes INSTALL LICENSE META.json README
 %doc %{_mandir}/man?/*
 %{_bindir}/config_data
 %dir %{perl_vendorlib}/Module/
@@ -108,6 +113,9 @@ find %{buildroot} -name .packlist -exec %{__rm} {} \;
 %{perl_vendorlib}/inc/latest/private.pm
 
 %changelog
+* Thu May 26 2011 Steve Huff <shuff@vecna.org> - 0.3800-1
+- Updated to version 0.3800.
+
 * Fri Jun 18 2010 Christoph Maser <cmaser@gmx.de> - 0.3607-1
 - Updated to version 0.3607.
 
