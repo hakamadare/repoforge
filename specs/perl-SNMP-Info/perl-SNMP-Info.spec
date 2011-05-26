@@ -1,21 +1,21 @@
 # $Id$
-# Authority: dries
+# Authority: shuff
 # Upstream: UPSTREAMTAG
 
 %define perl_vendorlib %(eval "`perl -V:installvendorlib`"; echo $installvendorlib)
 %define perl_vendorarch %(eval "`perl -V:installvendorarch`"; echo $installvendorarch)
 
-%define real_name NNAAMMEE
+%define real_name SNMP-Info
 
 Summary: 
-Name: perl-NNAAMMEE
+Name: perl-SNMP-Info
 Version: 
 Release: 1%{?dist}
 License: Artistic/GPL
 Group: Applications/CPAN
-URL: http://search.cpan.org/dist/NNAAMMEE/
+URL: http://search.cpan.org/dist/SNMP-Info/
 
-Source: NNAAMMEE-%{version}.tar.gz
+Source: SNMP-Info-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildArch: noarch
