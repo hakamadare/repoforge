@@ -242,4 +242,4 @@ find examples -wholename 'examples/languages/abc/t/harness' \
 
 %changelog
 * Fri May 27 2011 Steve Huff <shuff@vecna.org> - 3.3.0-1
-- Initial package.
+- Initial package (ported from EPEL).
