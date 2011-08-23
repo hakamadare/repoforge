@@ -36,7 +36,7 @@ client.
 %prep
 %setup
 %patch0 -p1
-# the Vcard patch doesn't apply cleanly
+# the vCard patch doesn't apply cleanly
 # %patch1 -p1
 
 %build
