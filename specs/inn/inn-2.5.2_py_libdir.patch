@@ -1,0 +1,12 @@
+diff -Naur inn-2.5.2-orig/configure inn-2.5.2/configure
+--- inn-2.5.2-orig/configure	2010-03-24 16:10:36.000000000 -0400
++++ inn-2.5.2/configure	2011-09-20 16:45:54.393260868 -0400
+@@ -13098,7 +13098,7 @@
+ echo $ECHO_N "checking for Python linkage... $ECHO_C" >&6; }
+     py_prefix=`$PYTHON -c 'import sys; print sys.prefix'`
+     py_ver=`$PYTHON -c 'import sys; print sys.version[:3]'`
+-    py_libdir="$py_prefix/lib/python$py_ver"
++    py_libdir=`$PYTHON -c 'from distutils.sysconfig import get_python_lib; print(get_python_lib(1,1))'`
+     PYTHON_CPPFLAGS="-I$py_prefix/include/python$py_ver"
+     py_linkage=""
+     for py_linkpart in LIBS LIBC LIBM LOCALMODLIBS BASEMODLIBS \
